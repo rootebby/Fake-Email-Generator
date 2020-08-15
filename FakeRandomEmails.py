@@ -8,12 +8,12 @@ Asks user for how many fake emails they want generated. Must be Integer. Duh.
 If not an integer, keeps recursively cycling back until it gets an integer. 
 '''
 def getcount():
-	rownums = raw_input("How many fake email addresses?: ")
+	rownums = input("How many fake email addresses?: ")
 	try:
 		rowint = int(rownums)
 		return rowint
 	except ValueError:
-		print "Please enter an integer value"
+		print ("Please enter an integer value")
 		return getcount()
 
 '''
@@ -71,7 +71,7 @@ print ("Progress: ")
 
 bar = progressbar.ProgressBar(maxval=int(howmany))
 	
-emailfile = open(str(filename), 'wa')
+emailfile = open(str(filename), 'w')
 aa = csv.writer(emailfile)
 for emailaddr in bar(emailarray):
 	aa.writerow([emailaddr])
